@@ -1,3 +1,4 @@
+%probando
 Fs = 48000;
 longitud = 1.5; %Longitud de los audios
 x=0:1/Fs:longitud;
@@ -14,18 +15,11 @@ s = getaudiodata(recObj);
 
 %Corrimiento en frecuencia
 t = linspace(0, 1.5, 1.5*Fs);
-<<<<<<< HEAD
 shifter=exp(2*pi*i*10*t);
 st = s'.*shifter;
 st = st';
 
 
-=======
-shifter=sin(2*i*pi*10*t);
-st = st'.*shifter;
-st = st';
-
->>>>>>> origin/master
 f = Fs*(0:nfft/2-1)/nfft; %frecuency axis
 
 % Transformada de Fourier
@@ -33,21 +27,13 @@ S = fft(s,nfft); %(to normalize, divide by N)
 S = S(1:nfft/2); %positive part of the fft 
 
 ST = fft(st,nfft);
-<<<<<<< HEAD
 ST = ST(1:nfft/2);
-=======
-ST = S(1:nfft/2);
->>>>>>> origin/master
 
 %tiempo
 subplot(3,1,1), plot(x(2:end),s); 
         
 %frecuencia
 subplot(3,1,2), semilogx(f,abs(S));
-<<<<<<< HEAD
 subplot(3,1,3), semilogx(f,abs(ST));
 pause(1.5);
 sound(abs(st),Fs);
-=======
-subplot(3,1,3), semilogx(f,abs(St));
->>>>>>> origin/master
